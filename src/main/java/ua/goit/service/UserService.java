@@ -4,7 +4,10 @@ import ua.goit.customers.User;
 import ua.goit.customers.UserCart;
 import ua.goit.grocery.InMemoryDatabase;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
