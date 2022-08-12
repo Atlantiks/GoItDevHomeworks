@@ -1,18 +1,15 @@
 package ua.goit.customers;
 
+import lombok.AllArgsConstructor;
 import ua.goit.grocery.InMemoryDatabase;
 
 import java.util.Map;
 import java.util.Objects;
 
+@AllArgsConstructor
 public class UserCart {
     private Map<Character, Long> selectedItems;
     private InMemoryDatabase db;
-
-    public UserCart(Map<Character, Long> selectedItems, InMemoryDatabase db) {
-        this.selectedItems = selectedItems;
-        this.db = db;
-    }
 
     public double calculateTotalCost() {
         double totalCost = 0.0;
