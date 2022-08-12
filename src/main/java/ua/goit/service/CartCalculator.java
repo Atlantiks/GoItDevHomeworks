@@ -14,22 +14,29 @@ public class CartCalculator {
 
     public static void main(String[] args) {
         String userInput = "ABCDABA";
-        List<Character> userChoice = new ArrayList<>();
 
+        var userChoice = filterUserInput(userInput);
+
+        Map<Character, Long> userCart = formUserCart(userChoice);
+
+        System.out.println(calculateTotalCost(userCart));
+    }
+
+    public static List<Character> filterUserInput(String userInput) {
+        List<Character> userChoice = new ArrayList<>();
         char[] chars = userInput.toCharArray();
 
         for (char x : chars) {
             if (x > 64 && x < 69) userChoice.add(x);
         }
+        return userChoice;
+    }
 
-        userChoice.forEach(System.out::print);
-
-        Map<Character, Long> userCart = userChoice.stream().collect(
+    public static Map<Character, Long> formUserCart(List<Character> userChoice) {
+        return userChoice.stream().collect(
                 Collectors.groupingBy(
                         Function.identity(),
                         Collectors.counting()));
-
-        System.out.println(calculateTotalCost(userCart));
     }
 
     public static double calculateTotalCost(Map<Character, Long> userCart) {
@@ -40,7 +47,7 @@ public class CartCalculator {
                 if (entry.getKey() == product.getCode()) {
                     if (Objects.nonNull(product.getDiscount())) {
                         totalCost += entry.getValue() / product.getDiscount().getUnits() * product.getDiscount().getCost() +
-                                     entry.getValue() % product.getDiscount().getUnits() * product.getPrice();
+                                entry.getValue() % product.getDiscount().getUnits() * product.getPrice();
                     } else {
                         totalCost += entry.getValue() * product.getPrice();
                     }
