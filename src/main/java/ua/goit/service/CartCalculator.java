@@ -2,10 +2,7 @@ package ua.goit.service;
 
 import ua.goit.grocery.InMemoryDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -13,13 +10,28 @@ public class CartCalculator {
     static InMemoryDatabase db = new InMemoryDatabase();
 
     public static void main(String[] args) {
-        String userInput = "ABCDABA";
-
+        String userInput = getUserInput();
         var userChoice = filterUserInput(userInput);
+        var userCart = formUserCart(userChoice);
+        userCart.entrySet().stream().forEach(entry -> {
+            System.out.println("Товар с кодом " + entry.getKey() + " в количестве " + entry.getValue());
+        });
+        System.out.println("Общая стоймость всех товаров: " + calculateTotalCost(userCart));
+    }
 
-        Map<Character, Long> userCart = formUserCart(userChoice);
-
-        System.out.println(calculateTotalCost(userCart));
+    public static String getUserInput() {
+        Scanner sc = new Scanner(System.in);
+        StringBuilder output = new StringBuilder();
+        while (true) {
+            System.out.println("Введите коды товаров и нажмите ENTER");
+            String lastUserInput = sc.nextLine();
+            if(lastUserInput.equalsIgnoreCase("exit")) {
+                break;
+            } else {
+                output.append(lastUserInput);
+            }
+        }
+        return output.toString();
     }
 
     public static List<Character> filterUserInput(String userInput) {
