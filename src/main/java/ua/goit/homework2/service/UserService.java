@@ -30,15 +30,13 @@ public class UserService {
         Scanner sc = new Scanner(System.in);
         StringBuilder output = new StringBuilder();
         System.out.println("Введите коды товаров без пробелов и знаков препинания, затем нажмите ENTER");
-        while (true) {
+        System.out.println("Для завершения введите " + "\033[0;93m" + "exit" + "\u001B[0m" + " и нажмите ENTER");
+        String lastUserInput = sc.nextLine();
+        while (!lastUserInput.equalsIgnoreCase("exit")) {
+            output.append(lastUserInput);
             System.out.println("Введите следующую последовательность (если необходимо)");
-            System.out.println("Для завершения введите exit и нажмите ENTER");
-            String lastUserInput = sc.nextLine();
-            if (lastUserInput.equalsIgnoreCase("exit")) {
-                break;
-            } else {
-                output.append(lastUserInput);
-            }
+            System.out.println("Для завершения введите " + "\033[0;93m" + "exit" + "\u001B[0m" + " и нажмите ENTER");
+            lastUserInput = sc.nextLine();
         }
         return output.toString();
     }

@@ -1,12 +1,14 @@
 package ua.goit.homework2.customers;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import ua.goit.homework2.grocery.InMemoryDatabase;
 
 import java.util.Map;
 import java.util.Objects;
 
 @AllArgsConstructor
+@Getter
 public class UserCart {
     private Map<Character, Long> selectedItems;
     private InMemoryDatabase db;

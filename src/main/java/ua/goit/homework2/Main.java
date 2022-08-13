@@ -9,7 +9,11 @@ public class Main {
 
         new UserService().execute(firstCustomer);
 
-        System.out.println("Общая стоймость выбранных товаров: "
-                + firstCustomer.getUserCart().calculateTotalCost());
+        firstCustomer.getUserCart().getSelectedItems().forEach((key,value) -> {
+            System.out.println("Товаров с индексом " + key + ": " + value);
+        });
+
+        System.out.println("Общая стоймость выбранных товаров: " + "\033[0;92m" +
+                firstCustomer.getUserCart().calculateTotalCost()  + "\u001B[0m");
     }
 }
