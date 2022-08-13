@@ -1,6 +1,7 @@
 package ua.goit.homework2.service;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,17 +14,23 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class UserServiceTest {
+    static UserService userService;
+
+    @BeforeAll
+    static void init() {
+        userService = new UserService();
+    }
 
     @ParameterizedTest
     @MethodSource
     void testFormUserCart(List<Character> input,Map<Character, Long> expected) {
-        Assertions.assertEquals(expected,new UserService().formUserCart(input));
+        Assertions.assertEquals(expected,userService.formUserCart(input));
     }
 
     @ParameterizedTest
     @MethodSource
     void testFilterUserInput(String input, List<Character> expectedOutput) {
-        Assertions.assertEquals(expectedOutput,new UserService().filterUserInput(input));
+        Assertions.assertEquals(expectedOutput,userService.filterUserInput(input));
     }
 
     private static Stream<Arguments> testFilterUserInput() {
