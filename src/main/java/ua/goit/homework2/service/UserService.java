@@ -4,10 +4,7 @@ import ua.goit.homework2.customers.User;
 import ua.goit.homework2.customers.UserCart;
 import ua.goit.homework2.grocery.InMemoryDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -43,6 +40,7 @@ public class UserService {
 
     public List<Character> filterUserInput(String userInput) {
         List<Character> output = new ArrayList<>();
+        if (Objects.isNull(userInput)) return output;
         char[] chars = userInput.toCharArray();
 
         for (char x : chars) {
