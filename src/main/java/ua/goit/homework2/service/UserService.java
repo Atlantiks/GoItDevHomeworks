@@ -29,9 +29,9 @@ public class UserService {
     public String processUserInput() {
         Scanner sc = new Scanner(System.in);
         StringBuilder output = new StringBuilder();
+        System.out.println("Введите коды товаров без пробелов и знаков препинания, затем нажмите ENTER");
         while (true) {
-            System.out.println("Введите коды товаров без пробелов и знаков препинания, затем нажмите ENTER");
-            System.out.println("Затем введите следующую последовательность (если необходимо)");
+            System.out.println("Введите следующую последовательность (если необходимо)");
             System.out.println("Для завершения введите exit и нажмите ENTER");
             String lastUserInput = sc.nextLine();
             if (lastUserInput.equalsIgnoreCase("exit")) {
