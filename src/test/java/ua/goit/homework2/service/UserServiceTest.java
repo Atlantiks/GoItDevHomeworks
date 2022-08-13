@@ -37,6 +37,7 @@ public class UserServiceTest {
                 Arguments.of("  ", List.of()),
                 Arguments.of(null, List.of()),
                 Arguments.of("\n", List.of()),
+                Arguments.of("A\nBBd", List.of('A','B','B')),
                 Arguments.of("русскийТекстАААианглийскаяB", List.of('B'))
         );
     }
