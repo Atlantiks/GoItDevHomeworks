@@ -2,12 +2,9 @@ package ua.goit.homework2.service;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import ua.goit.homework2.customers.UserCart;
-import ua.goit.homework2.service.UserService;
 
 import java.util.List;
 import java.util.Map;
