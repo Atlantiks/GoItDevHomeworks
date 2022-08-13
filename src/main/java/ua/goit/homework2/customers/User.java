@@ -1,4 +1,4 @@
-package ua.goit.customers;
+package ua.goit.homework2.customers;
 
 
 import lombok.AllArgsConstructor;

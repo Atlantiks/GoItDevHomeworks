@@ -1,4 +1,4 @@
-package ua.goit.grocery;
+package ua.goit.homework2.grocery;
 
 import java.util.ArrayList;
 import java.util.List;

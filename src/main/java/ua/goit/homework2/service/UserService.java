@@ -1,8 +1,8 @@
-package ua.goit.service;
+package ua.goit.homework2.service;
 
-import ua.goit.customers.User;
-import ua.goit.customers.UserCart;
-import ua.goit.grocery.InMemoryDatabase;
+import ua.goit.homework2.customers.User;
+import ua.goit.homework2.customers.UserCart;
+import ua.goit.homework2.grocery.InMemoryDatabase;
 
 import java.util.ArrayList;
 import java.util.List;

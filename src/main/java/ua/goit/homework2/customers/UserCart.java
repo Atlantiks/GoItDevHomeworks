@@ -1,7 +1,7 @@
-package ua.goit.customers;
+package ua.goit.homework2.customers;
 
 import lombok.AllArgsConstructor;
-import ua.goit.grocery.InMemoryDatabase;
+import ua.goit.homework2.grocery.InMemoryDatabase;
 
 import java.util.Map;
 import java.util.Objects;

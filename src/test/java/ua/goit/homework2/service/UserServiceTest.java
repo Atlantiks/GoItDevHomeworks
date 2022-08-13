@@ -1,8 +1,9 @@
-package ua.goit.service;
+package ua.goit.homework2.service;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ua.goit.customers.UserCart;
+import ua.goit.homework2.customers.UserCart;
+import ua.goit.homework2.service.UserService;
 
 import java.util.List;
 import java.util.Map;

@@ -1,8 +1,9 @@
-package ua.goit.customers;
+package ua.goit.homework2.customers;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ua.goit.grocery.InMemoryDatabase;
+import ua.goit.homework2.grocery.InMemoryDatabase;
+import ua.goit.homework2.customers.UserCart;
 
 import java.util.Map;
 

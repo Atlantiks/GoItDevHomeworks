@@ -1,7 +1,7 @@
-package ua.goit;
+package ua.goit.homework2;
 
-import ua.goit.customers.User;
-import ua.goit.service.UserService;
+import ua.goit.homework2.customers.User;
+import ua.goit.homework2.service.UserService;
 
 public class Main {
     public static void main(String[] args) {
