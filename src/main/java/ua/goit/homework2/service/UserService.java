@@ -51,6 +51,7 @@ public class UserService {
     }
 
     public Map<Character, Long> formUserCart(List<Character> userChoice) {
+        if (Objects.isNull(userChoice)) return Map.of();
         return  userChoice.stream().collect(
                 Collectors.groupingBy(
                         Function.identity(),

@@ -13,18 +13,11 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class UserServiceTest {
-    String userInput;
-    List<Character> userChoice;
-    Map<Character, Long> selectedItems;
-    UserCart cart;
 
-    @Test
-    void testFormUserCart() {
-        userChoice = List.of('A','B');
-        selectedItems = Map.of('A',1L,'B',1L);
-
-        var x = new UserService().formUserCart(userChoice);
-        Assertions.assertEquals(x,selectedItems);
+    @ParameterizedTest
+    @MethodSource
+    void testFormUserCart(List<Character> input,Map<Character, Long> expected) {
+        Assertions.assertEquals(expected,new UserService().formUserCart(input));
     }
 
     @ParameterizedTest
@@ -36,9 +29,19 @@ public class UserServiceTest {
     private static Stream<Arguments> testFilterUserInput() {
         return Stream.of(
                 Arguments.of("AcdfgBdfdfdC", List.of('A','B','C')),
-                Arguments.of("AAA", List.of('A','A','A')),
+                Arguments.of("ABABBAB", List.of('A','B','A','B','B','A','B')),
                 Arguments.of("  ", List.of()),
-                Arguments.of(null, List.of())
+                Arguments.of(null, List.of()),
+                Arguments.of("\n", List.of()),
+                Arguments.of("русскийТекстАААианглийскаяB", List.of('B'))
         );
+    }
+
+    private static Stream<Arguments> testFormUserCart() {
+        return Stream.of(
+                Arguments.of(List.of('A','B'),Map.of('A',1L,'B',1L)),
+                Arguments.of(null,Map.of(),
+                Arguments.of(List.of(),Map.of())
+                ));
     }
 }
