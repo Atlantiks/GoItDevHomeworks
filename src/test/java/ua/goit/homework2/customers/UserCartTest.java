@@ -30,7 +30,9 @@ public class UserCartTest {
                 Arguments.of(13.25, Map.of('A',3L,'B',2L,'C',1L,'D',1L)),
                 Arguments.of(3.0, Map.of('A',3L)),
                 Arguments.of(5.5, Map.of('A',5L)),
-                Arguments.of(1.5, Map.of('D',2L))
+                Arguments.of(1.5, Map.of('D',2L)),
+                Arguments.of(0.0, Map.of()),
+                Arguments.of(0.0, null)
         );
     }
 }

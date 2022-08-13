@@ -16,6 +16,8 @@ public class UserCart {
     public double calculateTotalCost() {
         double totalCost = 0.0;
 
+        if(Objects.isNull(selectedItems)) return 0.0;
+
         for (var entry : selectedItems.entrySet()) {
             for (var product : db.getAllProducts()) {
                 if (entry.getKey() == product.getCode()) {
